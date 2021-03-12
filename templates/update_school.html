@@ -1,0 +1,5 @@
+<form action="{% url 'update_school' school.pk %}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{schoolform.as_p}}
+    <button type="submit">Submit</button>
+</form>
