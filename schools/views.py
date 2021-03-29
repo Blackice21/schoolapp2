@@ -34,3 +34,9 @@ def delete_school(request, pk):
         school = get_object_or_404(School,pk=pk)
         school.delete()
         return redirect('home')
+
+def search(request):
+    schools = School.objects
+    search_info = request.GET['search_info']
+    searched_schools = schools.filter(name__icontains=search_info)
+    return render(request, 'search.html', {'searched_schools': searched_schools, 'search_info': search_info})

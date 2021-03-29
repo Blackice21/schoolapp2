@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">These are your schools!</h1>
+<a style='padding-left:5.3in;' href="{% url 'create_school' %}"><button>Create school!</button></a>
+<div class="row">
+  {% if search_info %}
+  {% if searched_schools %}
+  {% for school in searched_schools %}
+  <div class="col-md-4" style="padding-top:10px;">
+    <div class="card" style="width: 18rem;">
+        <img src="{{school.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{school.name}}</h5>
+          <h6 class="card-title">{{school.address}}</h6>
+          <p class="card-text">This is a great school!</p>
+          <a href="{% url 'detail_school' school.pk %}" class="btn btn-primary">more info!</a>
+          <a href="{% url 'update_school' school.pk %}" class="btn btn-secondary">update!</a>
+          <a href="{% url 'delete_school' school.pk %}" class="btn btn-danger">delete</a>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <h1 class="text-center">No schools found!</h1>
+  {% endif %}
+  {% else %}
+  <h1 class="text-center">No schools found!</h1>
+  {% endif %}
+</div>
+{% endblock content %}

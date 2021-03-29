@@ -26,4 +26,6 @@ urlpatterns = [
     path('detail_school/<int:pk>/', views.detail_school, name='detail_school'),
     path('update_school/<int:pk>/', views.update_school, name='update_school'),
     path('delete_school/<int:pk>/', views.delete_school, name='delete_school'),
+    path('search/', views.search, name='search_schools'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
