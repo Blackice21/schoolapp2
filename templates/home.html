@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1 class="text-center">These are your schools!</h1>
-<a style='padding-left:5.3in;' href="{% url 'create_school' %}"><button>Create school!</button></a>
 <div class="row">
   {% for school in schools %}
   <div class="col-md-4" style="padding-top:10px;">
